@@ -1,0 +1,23 @@
+#clientSearch{
+    display: block;
+    position: relative;
+    z-index: 1;
+    text-align:left;
+    margin-bottom: 20px;
+}
+#clientSearch a li{
+    color: black;
+    margin-bottom: 3px;
+}
+#clientSearch a li:hover{
+    background-color: rgba(186, 186, 186, 0.913);
+    color: aquamarine;
+}
+#clientSearch a li span{
+    margin-left: 10px;
+    font-size: 12.5px;
+}
+#clientSearch a img{
+    width: 70px;
+    height: 50px;
+}

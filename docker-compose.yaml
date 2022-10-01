@@ -1,0 +1,61 @@
+version: '3.8'
+
+services:
+  #tao service websever nginx
+  nginx:
+    image: nginx:stable
+    container_name: nginx
+    restart: always
+    ports:
+      - "80:80"
+    volumes:
+      - ./Laravel:/var/www/html/
+      - ./nginx/default.conf:/etc/nginx/conf.d/default.conf
+    networks:
+      - my-networks
+    depends_on:
+      - php
+ #tao service php  
+  php:
+    build: 
+      context: .
+      dockerfile: Dockerfile
+    container_name: php-c
+    restart: always
+    volumes:
+      - ./Laravel:/var/www/html
+    ports:
+      - "9000:9000"
+    working_dir: /var/www/html
+    networks:
+      - my-networks
+    links: 
+      - mysql
+  
+ #tao service mysql 
+  mysql:
+    image: mysql:5.7
+    container_name: mysql-c
+    restart: always
+    ports: 
+      - "3306:3306"
+    expose:
+      - 3306
+    volumes:
+      - dbdata:/var/lib/mysql
+      - ./mysql/my.cnf:/etc/mysql/my.cnf
+    environment: 
+      - MYSQL_DATABASE=laravel  
+      - MYSQL_USER=viet2000
+      - MYSQL_PASSWORD=123
+      - MYSQL_ROOT_PASSWORD=123
+    networks:
+      - my-networks
+      
+volumes:
+  dbdata:
+    driver: local
+networks:
+  my-networks:
+    driver: bridge
+
