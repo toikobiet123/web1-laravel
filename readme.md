@@ -17,7 +17,7 @@ php artisan migrate
 ```
 php artisan tinker
 
-User::create(["name"=> "vietbe","email"=>"viet.tq@gmail.com","password"=>bcrypt("123"), "role"=>"1"]);
+User::create(["name"=> "vietbe","email"=>"viet.tq@gmail.com","password"=>bcrypt("123"), "role_as"=>"1"]);
 ```
 
 ## Add user non-admin
@@ -26,6 +26,6 @@ User::create(["name"=> "vietbe","email"=>"viet.tq@gmail.com","password"=>bcrypt(
 ```
 php artisan tinker
 
-User::create(["name"=> "dondinh","email"=>"don.dq@gmail.com","password"=>bcrypt("123"), "role"=>"0"]);
+User::create(["name"=> "dondinh","email"=>"don.dq@gmail.com","password"=>bcrypt("123"), "role_as"=>"0"]);
 
 ```
