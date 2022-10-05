@@ -13,7 +13,7 @@ php artisan migrate
 ```
 
 ## Add user admin
-### Exec to php-c and type
+### Access to php-c and type
 ```
 php artisan tinker
 
@@ -21,7 +21,7 @@ User::create(["name"=> "vietbe","email"=>"viet.tq@gmail.com","password"=>bcrypt(
 ```
 
 ## Add user non-admin
-### Exec to php-c and type
+### Access to php-c and type
 
 ```
 php artisan tinker
